@@ -27,6 +27,7 @@
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
+      position: relative;
     }
     header h1 {
       font-size: 2rem;
@@ -147,6 +148,19 @@
     .scholar-btn:hover {
       background: #3367d6;
     }
+    /* Hamburger hidden on desktop */
+    .hamburger {
+      display: none;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+    /* Hide nav by default on mobile */
+    #nav-toggle {
+      display: none;
+    }
+    #nav-toggle:checked + .hamburger + nav ul {
+      display: flex;
+    }
     #resume a.cv-btn {
       margin-top: 0rem;
       display: inline-flex;
@@ -174,13 +188,24 @@
     @media (max-width: 768px) {
       header {
         flex-direction: column;
-        text-align: center;
+        align-items: flex-start;
       }
+
       nav ul {
-        justify-content: center;
+        flex-direction: column;
+        width: 100%;
         margin-top: 1rem;
+        display: none;
       }
-      .hero {
-        padding: 4rem 1rem;
+
+      #nav-toggle:checked + .hamburger + nav ul {
+        display: flex;
+      }
+
+      .hamburger {
+        display: block;
+        font-size: 2rem;
+        cursor: pointer;
+        margin-left: auto;
       }
     }
