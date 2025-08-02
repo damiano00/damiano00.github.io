@@ -5,92 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Damiano Pasquini - Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-pap0K7QcGH2Mxw16tWThv0D6/mM40Xdd56M1MJ3eL2N51FI0E6ufg82mvHq44dYim5+Twv3ZK68+40u7r3n0qw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <style>
-    :root {
-      --primary-color: #4a90e2;
-      --secondary-color: #333;
-      --light-color: #f4f4f4;
-      --dark-color: #24292e;
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Montserrat', sans-serif;
-      background: var(--light-color);
-      color: var(--secondary-color);
-      line-height: 1.6;
-    }
-    a { text-decoration: none; color: inherit; }
-    header {
-      background: linear-gradient(135deg, var(--primary-color), #306ab3);
-      color: #fff;
-      padding: 1.5rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-    header h1 { font-size: 2rem; font-weight: 600; }
-    nav ul { list-style: none; display: flex; gap: 1.5rem; }
-    nav ul li a { font-weight: 600; padding: 0.5rem; transition: opacity 0.3s; }
-    nav ul li a:hover { opacity: 0.8; }
-    .hero {
-      background: linear-gradient(135deg, #306ab3, var(--primary-color));
-      color: #fff;
-      text-align: center;
-      padding: 5rem 1rem;
-    }
-    .hero h2 { font-size: 3rem; margin-bottom: 1rem; }
-    .hero p { font-size: 1.5rem; }
-    .container { width: 90%; max-width: 1200px; margin: 3rem auto; }
-    section { padding: 3rem 0; }
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-    }
-    .project-card {
-      background: #fff;
-      border-radius: 10px;
-      padding: 2rem;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      transition: transform 0.3s, box-shadow 0.3s;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .project-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
-    }
-    .project-card h3 { margin-bottom: 1rem; font-size: 1.5rem; color: var(--primary-color); }
-    .project-card p { margin-bottom: 1.5rem; text-align: start; }
-    .github-btn {
-      display: inline-flex;
-      align-items: center;
-      background: var(--dark-color);
-      color: #fff;
-      padding: 0.7rem 1.2rem;
-      border-radius: 50px;
-      font-size: 1rem;
-      transition: background 0.3s;
-      width: fit-content;
-    }
-    .github-btn i { margin-right: 0.5rem; font-size: 1.2rem; }
-    .github-btn:hover { background: #3c4147; }
-    #contact a { color: var(--primary-color); font-weight: 600; }
-    footer {
-      background: var(--secondary-color);
-      color: #fff;
-      text-align: center;
-      padding: 1.5rem 2rem;
-    }
-    @media(max-width: 768px) {
-      header { flex-direction: column; text-align: center; }
-      nav ul { justify-content: center; margin-top: 1rem; }
-      .hero { padding: 4rem 1rem; }
-    }
-  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
@@ -99,107 +15,123 @@
       <ul>
         <li><a href="#about">About</a></li>
         <li><a href="#projects">Projects</a></li>
+        <li><a href="#resume">Resume</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
   </header>
 
   <section class="hero">
-    <h2>Welcome on my portfolio!</h2>
+    <h2>Welcome to my portfolio!</h2>
     <p>
-      MSc student at the <a href="https://www.unicam.it/" target="_blank">University of Camerino</a> and double degree student at the <a href="https://en.ru.is/" target="_blank">Reykjavik University</a>.
-</p>
+      Software Developer at <a href="https://www.linkedin.com/company/adeptic-reply/posts/?feedView=all" target="_blank">Adeptic Reply</a> | MSc in Computer Science at <a href="https://www.unicam.it/" target="_blank">UNICAM</a> and <a href="https://en.ru.is/" target="_blank">Reykjavik University</a>
+    </p>
   </section>
 
   <section id="about" class="container">
     <h2>About Me</h2>
     <p>
-        👋 Hi there! I'm Damiano, a current MSc CS student at UNICAM, specializing in Software Development and Technologies. I've had the opportunity to study as a double degree student at Reykjavik University allowing me to focus on Machine Learning and Natural Language Processing, which has been an incredible experience. 🧑‍💻I'm passionate about Machine Learning and Finance and I'm always looking for ways to combine the two. To pursue my interests I am writing a thesis titled "Time Series Analysis and Forecasting Applied to Automated Financial Trading". 🧗‍♂️ When I'm not studying or working on my projects, you can find me practicing climbing. It's a great way to clear my mind and stay active.
+      👋 Hi there! I’m Damiano. I graduated in Computer Science from UNICAM, specializing in Software Development and Technologies. I also studied as a double-degree student at Reykjavik University, focusing on Machine Learning and NLP—an incredible experience.<br /><br />
+      🧑‍💻 I'm passionate about Machine Learning and Finance, always exploring ways to combine the two. My thesis was titled “Time Series Forecasting in Automated Financial Trading.”<br /><br />
+      🧗‍♂️ Outside of work, I enjoy climbing—it's how I stay focused and active.
     </p>
   </section>
 
   <section id="projects" class="container">
-    <h2>Academic Projects and more</h2>
+    <h2>Academic Projects</h2>
     <div class="projects">
       <div class="project-card">
-        <h3>Broca-translator</h3>
+        <h3>Time Series Forecasting in Automated Financial Trading</h3>
         <p>
-          Seq2Seq model for translation of (Broca) aphasic sentences into English.
-          Developed as part of the Natural Language Processing course at Reykjavik University.
+          MSc thesis on predicting financial market trends using time series models,
+          combining statistical techniques and deep learning approaches.
         </p>
-        <a href="https://github.com/AndreaTerenz/Broca-translator" target="_blank" class="github-btn">
-          <i class="fab fa-github"></i> View on GitHub
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+          <a href="https://github.com/damiano00/time_series_forecasting" target="_blank" class="btn github-btn">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+          <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=5iwL8oAAAAAJ&citation_for_view=5iwL8oAAAAAJ:u5HHmVD_uO8C" target="_blank" class="btn scholar-btn">
+            <i class="fas fa-graduation-cap"></i> Scholar
+          </a>
+        </div>
+      </div>
+
+
+      <div class="project-card">
+        <h3>Broca-translator</h3>
+        <p>Seq2Seq model for translating aphasic (Broca) sentences into English. Developed during the NLP course at Reykjavik University.</p>
+        <a href="https://github.com/AndreaTerenz/Broca-translator" target="_blank" class="btn github-btn">
+          <i class="fab fa-github"></i> GitHub
         </a>
       </div>
+
       <div class="project-card">
         <h3>Malware Classification with Cuckoo Sandbox</h3>
-        <p>
-          Implementation of a malware classification system using the Cuckoo sandbox.
-          Analyzes diverse malware samples and classifies them based on defined features.
-          Final project for the MLCS (Machine Learning in Cyber Security) course at Reykjavik University.
-        </p>
-        <a href="https://github.com/marcoserenelli/MCCukoo" target="_blank" class="github-btn">
-          <i class="fab fa-github"></i> View on GitHub
+        <p>Classifies malware using dynamic analysis via Cuckoo Sandbox. Final project for the MLCS course at Reykjavik University.</p>
+        <a href="https://github.com/marcoserenelli/MCCukoo" target="_blank" class="btn github-btn">
+          <i class="fab fa-github"></i> GitHub
         </a>
       </div>
+
       <div class="project-card">
         <h3>Network Intrusion Detection</h3>
-        <p>
-          Thorough data preprocessing and implementation of Decision Tree and Random Forest classifiers.
-          Achieved high accuracy using scikit-learn and pandas for model evaluation in a cybersecurity project.
-        </p>
-        <a href="https://github.com/damiano00/T_710_MLCS_Machine_Learning_in_Cyber_Security/tree/main/intrusion_detection" target="_blank" class="github-btn">
-          <i class="fab fa-github"></i> View on GitHub
+        <p>Used Decision Tree and Random Forest classifiers with thorough preprocessing for a cybersecurity task.</p>
+        <a href="https://github.com/damiano00/T_710_MLCS_Machine_Learning_in_Cyber_Security/tree/main/intrusion_detection" target="_blank" class="btn github-btn">
+          <i class="fab fa-github"></i> GitHub
         </a>
       </div>
+
       <div class="project-card">
         <h3>JanusGraph-API</h3>
-        <p>
-          A simple REST API to query a JanusGraph database with Cassandra as backend.
-          Developed as part of the Technologies for Big Data Management exam at the University of Camerino.
-        </p>
-        <a href="https://github.com/TBDM-Project/JanusGraph-API-example" target="_blank" class="github-btn">
-          <i class="fab fa-github"></i> View on GitHub
+        <p>REST API querying JanusGraph with Cassandra backend. Built for a Big Data Management course at UNICAM.</p>
+        <a href="https://github.com/TBDM-Project/JanusGraph-API-example" target="_blank" class="btn github-btn">
+          <i class="fab fa-github"></i> GitHub
         </a>
       </div>
+
       <div class="project-card">
         <h3>Algorithms and Data Structures</h3>
-        <p>
-          Java library implementing key graph algorithms (Dijkstra, Bellman-Ford, etc.) and data structures for graph representation.
-          Created for the Algorithms and Data Structures course at UNICAM.
-        </p>
-        <a href="https://github.com/damiano00/AlgorithmsAndDataStructuresProject" target="_blank" class="github-btn">
-          <i class="fab fa-github"></i> View on GitHub
+        <p>Java library implementing graph algorithms like Dijkstra and Bellman-Ford. Course project at UNICAM.</p>
+        <a href="https://github.com/damiano00/AlgorithmsAndDataStructuresProject" target="_blank" class="btn github-btn">
+          <i class="fab fa-github"></i> GitHub
         </a>
       </div>
+
       <div class="project-card">
         <h3>Image Cataloging Support</h3>
-        <p>
-          Group project for recognizing faces and stamps in historical images using the Single Shot Multibox Detector algorithm.
-          Trained on a dataset provided by a local museum in Italy.
-        </p>
-        <a href="https://github.com/damiano00/ImageCatalogingSupport" target="_blank" class="github-btn">
-          <i class="fab fa-github"></i> View on GitHub
+        <p>Face and stamp recognition in historical images using SSD. Trained on local museum data.</p>
+        <a href="https://github.com/damiano00/ImageCatalogingSupport" target="_blank" class="btn github-btn">
+          <i class="fab fa-github"></i> GitHub
         </a>
       </div>
+
       <div class="project-card">
         <h3>Card Game Library</h3>
-        <p>
-          Java library for generic card games including components like cards, decks, and players.
-          Features an implementation of "Briscola" and was developed for the Advanced Programming course at UNICAM.
-        </p>
-        <a href="https://github.com/damiano00/CardGameLib" target="_blank" class="github-btn">
-          <i class="fab fa-github"></i> View on GitHub
+        <p>Java framework for card games. Includes a Briscola implementation. Developed at UNICAM.</p>
+        <a href="https://github.com/damiano00/CardGameLib" target="_blank" class="btn github-btn">
+          <i class="fab fa-github"></i> GitHub
         </a>
       </div>
     </div>
   </section>
 
-  <section id="contact" class="container">
+  <section id="resume" class="container">
+    <h2>Resume</h2>
+    <a href="https://drive.google.com/file/d/1me_clfpK2CraWZkk_x3bkZopSuieInTB/view" target="_blank" class="btn cv-btn">
+      <i class="fas fa-file-alt"></i> Open PDF
+    </a>
+  </section>
+
+
+  <section id="contact" class="container" >
     <h2>Contact</h2>
     <p>
       Feel free to connect with me on <a href="https://www.linkedin.com/in/damianopasquini/" target="_blank">LinkedIn</a>.
     </p>
   </section>
+
+  <footer>
+    <p>&copy; 2025 Damiano Pasquini</p>
+  </footer>
 </body>
 </html>
