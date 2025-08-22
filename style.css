@@ -77,13 +77,7 @@ nav ul li a:hover { opacity: 0.8; }
   cursor: pointer;
 }
 
-.lang {
-  display: none;
-}
 
-.lang.active {
-  display: block;
-}
 
 
 #nav-toggle { display: none; }
@@ -175,6 +169,8 @@ section h2 {
 .scholar-btn { background: #4285f4; color: #fff; }
 .scholar-btn:hover { background: #3367d6; }
 
+
+
 /* FOOTER */
 footer {
   background: var(--secondary-color);
@@ -242,4 +238,12 @@ footer {
     display: block;
   }
 
+}
+
+.lang {
+  display: none;
+}
+
+.lang.active {
+  display: block;
 }
