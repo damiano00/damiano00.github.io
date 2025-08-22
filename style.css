@@ -229,51 +229,75 @@ footer {
   transform: scale(1.1);
 }
 
-/* MOBILE */
+/* MOBILE MENU (drawer style) */
 @media (max-width: 768px) {
   header { flex-direction: row; align-items: center; }
-  
-  nav ul {
+
+  nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 75%;
+    max-width: 320px;
+    height: 100vh;
+    background: linear-gradient(135deg, #4a90e2, #306ab3); /* sfumatura */
+    box-shadow: -4px 0 15px rgba(0,0,0,0.4);
+    transition: right 0.35s ease-in-out;
+    z-index: 999;
+    display: flex;
     flex-direction: column;
-    align-items: center;
-    width: 100vw;              /* prende tutta la viewport */
-    max-width: 100%;           /* non esce oltre */
-    box-sizing: border-box;    /* padding incluso */
-    background: rgba(0,0,0,0.9);
-    padding: 2rem 0;
-    margin: 0;
-    gap: 1.5rem;
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;                  /* chiude lato destro */
-    transition: all 0.3s ease;
-    z-index: 999;              /* resta sopra */
+    padding-top: 5rem;
   }
 
-  nav ul li { width: 100%; text-align: center; }
+  nav ul {
+    list-style: none;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.8rem;
+    padding-left: 2rem;
+  }
+
+  nav ul li {
+    width: 100%;
+  }
 
   nav ul li a {
-    display: block;
-    width: 100%;
-    font-size: 1.3rem;
+    font-size: 1.4rem;
+    font-weight: 600;
     color: #fff;
+    padding: 0.5rem 0;
+    display: block;
+    transition: transform 0.2s ease, color 0.3s ease;
   }
 
-  .hamburger { display: block; margin-left: auto; }
-
-  #nav-toggle:checked + .hamburger + nav ul {
-    display: flex;
+  nav ul li a:hover {
+    transform: translateX(6px);
+    color: #ffeb3b; /* giallino acceso */
   }
 
+  /* attiva menu */
+  #nav-toggle:checked ~ nav {
+    right: 0;
+  }
+
+  /* hamburger */
+  .hamburger {
+    display: block;
+    margin-left: auto;
+    z-index: 1000;
+  }
+
+  /* bandiere lingua */
   .lang-switch {
-    margin-top: 2rem;
-    justify-content: center;
+    margin-top: 3rem;
+    justify-content: flex-start;
+    padding-left: 2rem;
+    gap: 1rem;
   }
 
-  .lang { display: none; }
-  .lang.active { display: block; }
+  .lang-switch .flag {
+    font-size: 1.6rem;
+  }
 }
 
 .lang { display: none; }
