@@ -74,43 +74,9 @@ nav ul li a:hover { opacity: 0.8; }
 
 .lang-switch .flag:hover { transform: scale(1.2); }
 
-/* HAMBURGER ICON */
+/* HAMBURGER base (nascosto su desktop) */
 .hamburger {
   display: none;
-  width: 30px;
-  height: 20px;
-  position: relative;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.hamburger span {
-  position: absolute;
-  height: 3px;
-  width: 100%;
-  background: #fff;
-  left: 0;
-  transition: all 0.3s ease;
-  border-radius: 3px;
-}
-
-.hamburger span:nth-child(1) { top: 0; }
-.hamburger span:nth-child(2) { top: 8px; }
-.hamburger span:nth-child(3) { top: 16px; }
-
-/* Toggle effect */
-#nav-toggle:checked + .hamburger span:nth-child(1) {
-  transform: rotate(45deg);
-  top: 8px;
-}
-
-#nav-toggle:checked + .hamburger span:nth-child(2) {
-  opacity: 0;
-}
-
-#nav-toggle:checked + .hamburger span:nth-child(3) {
-  transform: rotate(-45deg);
-  top: 8px;
 }
 
 #nav-toggle { display: none; }
@@ -233,6 +199,17 @@ footer {
 @media (max-width: 768px) {
   header { flex-direction: row; align-items: center; }
 
+  /* overlay dietro il menu */
+  .overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 998;
+  }
+
   nav {
     position: fixed;
     top: 0;
@@ -240,7 +217,7 @@ footer {
     width: 75%;
     max-width: 320px;
     height: 100vh;
-    background: linear-gradient(135deg, #4a90e2, #306ab3); /* sfumatura */
+    background: linear-gradient(135deg, #4a90e2, #306ab3);
     box-shadow: -4px 0 15px rgba(0,0,0,0.4);
     transition: right 0.35s ease-in-out;
     z-index: 999;
@@ -257,10 +234,6 @@ footer {
     padding-left: 2rem;
   }
 
-  nav ul li {
-    width: 100%;
-  }
-
   nav ul li a {
     font-size: 1.4rem;
     font-weight: 600;
@@ -272,19 +245,55 @@ footer {
 
   nav ul li a:hover {
     transform: translateX(6px);
-    color: #ffeb3b; /* giallino acceso */
+    color: #ffeb3b;
   }
 
-  /* attiva menu */
+  /* attiva menu + overlay */
   #nav-toggle:checked ~ nav {
     right: 0;
   }
+  #nav-toggle:checked ~ .overlay {
+    opacity: 1;
+    pointer-events: auto;
+  }
 
-  /* hamburger */
+  /* hamburger SOLO su mobile */
   .hamburger {
     display: block;
-    margin-left: auto;
-    z-index: 1000;
+    width: 30px;
+    height: 24px;
+    position: fixed;
+    top: 1.5rem;
+    right: 1.5rem;
+    cursor: pointer;
+    z-index: 1001;
+  }
+
+  .hamburger span {
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background: #fff;
+    left: 0;
+    transition: all 0.3s ease;
+    border-radius: 3px;
+  }
+
+  .hamburger span:nth-child(1) { top: 0; }
+  .hamburger span:nth-child(2) { top: 10px; }
+  .hamburger span:nth-child(3) { top: 20px; }
+
+  /* X animata */
+  #nav-toggle:checked + .hamburger span:nth-child(1) {
+    transform: rotate(45deg);
+    top: 10px;
+  }
+  #nav-toggle:checked + .hamburger span:nth-child(2) {
+    opacity: 0;
+  }
+  #nav-toggle:checked + .hamburger span:nth-child(3) {
+    transform: rotate(-45deg);
+    top: 10px;
   }
 
   /* bandiere lingua */
@@ -300,5 +309,6 @@ footer {
   }
 }
 
+/* MULTILINGUA */
 .lang { display: none; }
 .lang.active { display: block; }
