@@ -9,29 +9,50 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-  <header>
-    <h1>Damiano Pasquini</h1>
+<script>
+  const navToggle = document.getElementById("nav-toggle");
 
-    <input type="checkbox" id="nav-toggle" />
-    <label for="nav-toggle" class="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </label>
+  // Chiudi menu al click su ogni link
+  document.querySelectorAll("nav ul li a").forEach(link => {
+    link.addEventListener("click", () => {
+      navToggle.checked = false;
+    });
+  });
 
-    <nav>
-      <ul>
-        <li><a href="#about" data-en="About" data-it="Chi Sono">About</a></li>
-        <li><a href="#projects" data-en="Projects" data-it="Progetti">Projects</a></li>
-        <li><a href="#resume" data-en="Resume" data-it="Curriculum">Resume</a></li>
-        <li><a href="#contact" data-en="Contact" data-it="Contatti">Contact</a></li>
-        <li class="lang-switch">
-          <button onclick="setLang('en')" class="flag">🇬🇧</button>
-          <button onclick="setLang('it')" class="flag">🇮🇹</button>
-        </li>
-      </ul>
-    </nav>
-  </header>
+  // Chiudi menu ricliccando l’hamburger se è già aperto
+  document.querySelector(".hamburger").addEventListener("click", () => {
+    if (navToggle.checked) {
+      navToggle.checked = false;
+    }
+  });
+</script>
+<header>
+  <h1>Damiano Pasquini</h1>
+
+  <input type="checkbox" id="nav-toggle" />
+  <label for="nav-toggle" class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </label>
+
+  <nav>
+    <ul>
+      <li><a href="#about" data-en="About" data-it="Chi Sono">About</a></li>
+      <li><a href="#projects" data-en="Projects" data-it="Progetti">Projects</a></li>
+      <li><a href="#resume" data-en="Resume" data-it="Curriculum">Resume</a></li>
+      <li><a href="#contact" data-en="Contact" data-it="Contatti">Contact</a></li>
+      <li class="lang-switch">
+        <button onclick="setLang('en')" class="flag">🇬🇧</button>
+        <button onclick="setLang('it')" class="flag">🇮🇹</button>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- overlay cliccabile -->
+  <label for="nav-toggle" class="overlay"></label>
+</header>
+
 
 
   <!-- HERO -->
