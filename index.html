@@ -3,253 +3,688 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Damiano Pasquini - Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
+  <title>Damiano Pasquini — Software Engineer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" />
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-<script>
-  const navToggle = document.getElementById("nav-toggle");
 
-  // Chiudi menu al click su ogni link
-  document.querySelectorAll("nav ul li a").forEach(link => {
-    link.addEventListener("click", () => {
-      navToggle.checked = false;
-    });
-  });
+<!-- CURSOR -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-dot" id="cursor-dot"></div>
 
-  // Chiudi menu ricliccando l’hamburger se è già aperto
-  document.querySelector(".hamburger").addEventListener("click", () => {
-    if (navToggle.checked) {
-      navToggle.checked = false;
-    }
-  });
-</script>
-<header>
-  <h1>Damiano Pasquini</h1>
-
-  <input type="checkbox" id="nav-toggle" />
-  <label for="nav-toggle" class="hamburger">
-    <span></span>
-    <span></span>
-    <span></span>
-  </label>
-
-  <nav>
-    <ul>
-      <li><a href="#about" data-en="About" data-it="Chi Sono">About</a></li>
-      <li><a href="#projects" data-en="Projects" data-it="Progetti">Projects</a></li>
-      <li><a href="#resume" data-en="Resume" data-it="Curriculum">Resume</a></li>
-      <li><a href="#contact" data-en="Contact" data-it="Contatti">Contact</a></li>
-      <li class="lang-switch">
-        <button onclick="setLang('en')" class="flag">🇬🇧</button>
-        <button onclick="setLang('it')" class="flag">🇮🇹</button>
-      </li>
-    </ul>
-  </nav>
-
-  <!-- overlay cliccabile -->
-  <label for="nav-toggle" class="overlay"></label>
+<!-- NAV -->
+<header id="header">
+  <div class="nav-inner">
+    <a class="logo" href="#hero">DP<span class="logo-dot">.</span></a>
+    <nav>
+      <ul id="nav-links">
+        <li><a href="#about" data-en="About" data-it="Chi Sono">About</a></li>
+        <li><a href="#work" data-en="Work" data-it="Lavoro">Work</a></li>
+        <li><a href="#education" data-en="Education" data-it="Formazione">Education</a></li>
+        <li><a href="#projects" data-en="Projects" data-it="Progetti">Projects</a></li>
+        <li><a href="#resume" data-en="Resume" data-it="CV">Resume</a></li>
+        <li><a href="#contact" data-en="Contact" data-it="Contatti">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-right">
+      <div class="lang-btns">
+        <button onclick="setLang('en')" class="lang-btn active" id="btn-en">EN</button>
+        <span class="lang-sep">/</span>
+        <button onclick="setLang('it')" class="lang-btn" id="btn-it">IT</button>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
 </header>
 
+<!-- MOBILE DRAWER -->
+<div class="drawer" id="drawer">
+  <ul>
+    <li><a href="#about" class="drawer-link" data-en="About" data-it="Chi Sono">About</a></li>
+    <li><a href="#work" class="drawer-link" data-en="Work" data-it="Lavoro">Work</a></li>
+    <li><a href="#education" class="drawer-link" data-en="Education" data-it="Formazione">Education</a></li>
+    <li><a href="#projects" class="drawer-link" data-en="Projects" data-it="Progetti">Projects</a></li>
+    <li><a href="#resume" class="drawer-link" data-en="Resume" data-it="CV">Resume</a></li>
+    <li><a href="#contact" class="drawer-link" data-en="Contact" data-it="Contatti">Contact</a></li>
+  </ul>
+  <div class="drawer-lang">
+    <button onclick="setLang('en')" class="lang-btn" id="dbtn-en">EN</button>
+    <span class="lang-sep">/</span>
+    <button onclick="setLang('it')" class="lang-btn" id="dbtn-it">IT</button>
+  </div>
+</div>
+<div class="overlay" id="overlay"></div>
 
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="lang en active">
-      <h2>Welcome to my portfolio!</h2>
-      <p>
-        Software Developer at <a href="https://www.reply.com/adeptic-reply/en" target="_blank">Adeptic Reply</a> |
-        MSc in Computer Science at <a href="https://www.unicam.it/" target="_blank">UNICAM</a> and
-        <a href="https://en.ru.is/" target="_blank">Reykjavik University</a>
-      </p>
+<!-- HERO -->
+<section id="hero" class="hero">
+  <div class="hero-bg-grid"></div>
+  <div class="hero-content">
+    <!-- <p class="hero-label"><span class="dot-pulse"></span> <span data-en="Available for new opportunities" data-it="Disponibile per nuove opportunità" class="i18n">Available for new opportunities</span></p> -->
+    <h1 class="hero-name">Damiano<br>Pasquini</h1>
+    <div class="hero-title-row">
+      <span class="typing-text" id="typing"></span><span class="caret">|</span>
     </div>
-    <div class="lang it">
-      <h2>Benvenuti nel mio portfolio!</h2>
-      <p>
-        Sviluppatore Software presso <a href="https://www.reply.com/adeptic-reply/en" target="_blank">Adeptic Reply</a> |
-        MSc in Computer Science presso <a href="https://www.unicam.it/" target="_blank">UNICAM</a> e
-        <a href="https://en.ru.is/" target="_blank">Reykjavik University</a>
-      </p>
+    <p class="hero-sub lang en active">
+      Software Developer @ <a href="https://www.reply.com/adeptic-reply/en" target="_blank">Adeptic Reply</a> ·
+      MSc @ <a href="https://www.unicam.it/" target="_blank">UNICAM</a> &amp; <a href="https://en.ru.is/" target="_blank">Reykjavik University</a>
+    </p>
+    <p class="hero-sub lang it">
+      Software Developer @ <a href="https://www.reply.com/adeptic-reply/en" target="_blank">Adeptic Reply</a> ·
+      MSc @ <a href="https://www.unicam.it/" target="_blank">UNICAM</a> e <a href="https://en.ru.is/" target="_blank">Reykjavik University</a>
+    </p>
+    <div class="hero-cta">
+      <a href="#projects" class="btn btn-primary lang en active">View Projects</a>
+      <a href="#projects" class="btn btn-primary lang it">Vedi Progetti</a>
+      <a href="#contact" class="btn btn-ghost lang en active">Get in touch</a>
+      <a href="#contact" class="btn btn-ghost lang it">Contattami</a>
     </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about" class="container">
-    <div class="lang en active">
-      <h2>About Me</h2>
-      <p>
-        👋 Hi there! I’m Damiano. I graduated in Computer Science from UNICAM, specializing in Software Development and Technologies.
-        I also had the opportunity to study as a double degree student at Reykjavik University, where I focused on Machine Learning and Natural Language Processing—an incredible experience. <br /><br />
-        🧑‍💻 I’m passionate about Machine Learning and Finance, and I’m always looking for ways to combine the two.
-        To pursue these interests, I wrote a thesis titled “Time Series Forecasting in Automated Financial Trading". <br /><br />
-        💼 I am currently working at a new and dynamic company called Adeptic Reply, where innovation is key.
-        As part of the IPCEI-CIS project, we are shaping the future of Europe, developing a multi-provider Cloud/Edge continuum that will define the next generation of network infrastructure for cloud services across the continent. <br /><br />
-        🧗‍♂️ When I’m not studying or working on my projects, you’ll find me climbing. It’s a great way to clear my mind and stay active.      </p>
+    <div class="hero-stats">
+      <!-- <div class="stat">
+        <span class="stat-num" data-target="110">0</span><span class="stat-unit">/110</span>
+        <span class="stat-label lang en active">Cum Laude</span>
+        <span class="stat-label lang it">Con Lode</span>
+      </div>
+      <div class="stat-divider"></div> -->
+      <div class="stat">
+        <span class="stat-num" data-target="2">0</span>
+        <span class="stat-label lang en active">Universities</span>
+        <span class="stat-label lang it">Università</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-num" data-target="8">0</span><span class="stat-unit">+</span>
+        <span class="stat-label lang en active">Tech projects</span>
+        <span class="stat-label lang it">Progetti tech</span>
+      </div>
     </div>
-    <div class="lang it">
-      <h2>Chi Sono</h2>
-      <p>
-        👋 Ciao! Sono Damiano. Mi sono laureato in Computer Science ad UNICAM, specializzandomi in Software Development and Technologies. 
-        Ho inoltre studiato come studente double degree alla Reykjavik University, con focus su Machine Learning e Natural Language Processing — un’esperienza incredibile.<br /><br />
-        🧑‍💻 Sono appassionato di Machine Learning e Finanza, e mi piace esplorare modi di combinare queste due aree. 
-        La mia tesi si intitola “Time Series Forecasting in Automated Financial Trading.”<br /><br />
-        💼 Attualmente lavoro in Adeptic Reply, una nuova company molto dinamica e innovativa.
-        Come parte del progetto IPCEI-CIS, stiamo plasmando il futuro dell’Europa, sviluppando un'infrastruttura multi-provider Cloud/Edge continuum che definirà la prossima generazione di infrastrutture di rete per i servizi cloud in tutto il continente. <br /><br />
-        🧗‍♂️ Fuori dal lavoro mi piace praticare arrampicata sportiva — è il mio modo per restare attivo e liberare la mente.
-      </p>
-    </div>
-  </section>
+  </div>
+  <div class="scroll-hint">
+    <span class="lang en active">scroll</span>
+    <span class="lang it">scorri</span>
+    <i class="fas fa-arrow-down"></i>
+  </div>
+</section>
 
-  <!-- PROJECTS -->
-  <section id="projects" class="container">
-    <div class="lang en active"><h2>Academic Projects</h2></div>
-    <div class="lang it"><h2>Progetti Accademici</h2></div>
-
-    <div class="projects">
-      <div class="project-card">
-        <div class="lang en active">
-          <h3>Time Series Forecasting in Automated Financial Trading</h3>
-          <p>MSc thesis on predicting financial market trends using time series models, combining statistical techniques and deep learning approaches.</p>
+<!-- ABOUT -->
+<section id="about" class="section reveal">
+  <div class="container">
+    <div class="section-label lang en active">01 — About</div>
+    <div class="section-label lang it">01 — Chi Sono</div>
+    <div class="about-grid">
+      <div class="about-text lang en active">
+        <h2>Building at the edge of Cloud &amp; AI</h2>
+        <p>
+          I'm a software developer at Adeptic Reply in Turin, working on IPCEI-CIS — a European initiative shaping the next generation of multi-provider Cloud/Edge infrastructure.
+        </p>
+        <p>
+          I hold a double MSc in Computer Science from the University of Camerino and Reykjavik University, with a specialisation in Machine Learning and NLP. My thesis applied deep reinforcement learning (CLSTM-PPO) to algorithmic financial trading.
+        </p>
+        <p>
+          Outside the terminal, you'll find me climbing — sport climbing is my way of keeping the mind clear.
+        </p>
+      </div>
+      <div class="about-text lang it">
+        <h2>Costruire all'intersezione di Cloud e AI</h2>
+        <p>
+          Sono un software developer ad Adeptic Reply a Torino, dove lavoro su IPCEI-CIS — un'iniziativa europea che plasma la prossima generazione di infrastrutture Cloud/Edge multi-provider.
+        </p>
+        <p>
+          Ho conseguito il doppio MSc in Computer Science tra l'Università di Camerino e la Reykjavik University, con specializzazione in Machine Learning e NLP. La mia tesi applica il deep reinforcement learning (CLSTM-PPO) al trading finanziario algoritmico.
+        </p>
+        <p>
+          Al di fuori del lavoro, puoi trovarmi a praticare arrampicata sportiva — è il mio modo di mantenere la mente libera.
+        </p>
+      </div>
+      <div class="skills-panel">
+        <div class="skills-group">
+          <h4 class="lang en active">Languages</h4>
+          <h4 class="lang it">Linguaggi</h4>
+          <div class="skill-tags">
+            <span class="tag">Python</span><span class="tag">Go</span><span class="tag">Java</span><span class="tag">Bash</span>
+          </div>
         </div>
-        <div class="lang it">
-          <h3>Time Series Forecasting in Automated Financial Trading</h3>
-          <p>Tesi di MSc sulla previsione delle tendenze di mercato utilizzando modelli di serie temporali, combinando tecniche statistiche e approcci di deep learning.</p>
+        <div class="skills-group">
+          <h4 class="lang en active">Infrastructure</h4>
+          <h4 class="lang it">Infrastruttura</h4>
+          <div class="skill-tags">
+            <span class="tag">Kubernetes</span><span class="tag">Docker</span><span class="tag">Helm</span><span class="tag">Flux</span><span class="tag">Kafka</span>
+          </div>
         </div>
-        <div class="buttons">
-          <a href="https://github.com/damiano00/time_series_forecasting" target="_blank" class="btn github-btn"><i class="fab fa-github"></i> GitHub</a>
-          <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=5iwL8oAAAAAJ&citation_for_view=5iwL8oAAAAAJ:u5HHmVD_uO8C" target="_blank" class="btn scholar-btn"><i class="fas fa-graduation-cap"></i> Scholar</a>
+        <div class="skills-group">
+          <h4 class="lang en active">ML / Data</h4>
+          <h4 class="lang it">ML / Dati</h4>
+          <div class="skill-tags">
+            <span class="tag">PyTorch</span><span class="tag">TensorFlow</span><span class="tag">Pandas</span><span class="tag">MongoDB</span>
+          </div>
+        </div>
+        <div class="skills-group">
+          <h4 class="lang en active">Tools</h4>
+          <h4 class="lang it">Strumenti</h4>
+          <div class="skill-tags">
+            <span class="tag">GitLab CI</span><span class="tag">Harbor</span><span class="tag">Nginx</span><span class="tag">OpenAPI</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK EXPERIENCE -->
+<section id="work" class="section reveal">
+  <div class="container">
+    <div class="section-label lang en active">02 — Work</div>
+    <div class="section-label lang it">02 — Esperienza</div>
+    <h2 class="section-title lang en active">Professional Experience</h2>
+    <h2 class="section-title lang it">Esperienza Professionale</h2>
+    <div class="timeline">
+
+      <div class="timeline-item reveal-item">
+        <div class="timeline-meta">
+          <span class="timeline-date">May 2025 — <span class="lang en active">Present</span><span class="lang it">Oggi</span></span>
+          <span class="timeline-company"><a href="https://www.reply.com/adeptic-reply/en/about-us" target="_blank" class="timeline-link">Adeptic Reply</a> · Turin</span>
+        </div>
+        <div class="timeline-body">
+          <h3 class="lang en active">Network Engineer &amp; Software Developer</h3>
+          <h3 class="lang it">Network Engineer &amp; Software Developer</h3>
+          <div class="lang en active">
+            <p>Working on the IPCEI-CIS European project, developing cloud-native services and APIs for a federated multi-provider Cloud/Edge continuum. Key contributions:</p>
+            <ul>
+              <li>Implemented GSMA-compliant API servers and clients in Go, with Harbor OCI registry and MongoDB persistence</li>
+              <li>Managed GitLab CI/CD pipelines and Kubernetes/Flux GitOps workflows</li>
+              <li>Designed event-driven architecture using Apache Kafka for federated edge computing between Operator Platforms</li>
+              <li>Presented <em><a href="https://www.linkedin.com/posts/damianopasquini_replyxchange-8ra-cloudeedge-ugcPost-7460993684763893760-nJvH" target="_blank" class="timeline-link">Cloud-Native Robotics on the Edge</a></em> at Reply Xchange Milan 2026</li>
+            </ul>
+          </div>
+          <div class="lang it">
+            <p>Lavoro sul progetto europeo IPCEI-CIS, sviluppando servizi cloud-native e API per un continuum Cloud/Edge multi-provider federato. Contributi principali:</p>
+            <ul>
+              <li>Implementazione di server e client API conformi GSMA in Go, con registro OCI Harbor e persistenza MongoDB</li>
+              <li>Gestione di pipeline GitLab CI/CD e workflow Kubernetes/Flux GitOps</li>
+              <li>Architettura orientata agli eventi usando Apache Kafka per la comunicazione tra componenti</li>
+              <li>Presentazione <em><a href="https://www.linkedin.com/posts/damianopasquini_replyxchange-8ra-cloudeedge-ugcPost-7460993684763893760-nJvH" target="_blank" class="timeline-link">Cloud-Native Robotics on the Edge</a></em> a Reply Xchange Milano 2026</li>
+            </ul>
+          </div>
+          <div class="tech-chips">
+            <span class="chip">Go</span><span class="chip">Kubernetes</span><span class="chip">Kafka</span><span class="chip">Flux</span><span class="chip">MongoDB</span><span class="chip">GSMA API</span><span class="chip">Harbor</span>
+          </div>
         </div>
       </div>
 
-      <div class="project-card">
-        <div class="lang en active">
+      <div class="timeline-item reveal-item">
+        <div class="timeline-meta">
+          <span class="timeline-date">Oct 2022 — Jan 2023</span>
+          <span class="timeline-company"><a href="https://appload.studio/" target="_blank" class="timeline-link">Appload Studio</a> · Corridonia</span>
+        </div>
+        <div class="timeline-body">
+          <h3 class="lang en active">Junior iOS Developer</h3>
+          <h3 class="lang it">Junior iOS Developer</h3>
+          <div class="lang en active">
+            <p>Developed native iOS applications, working on Barterchain's home page from scratch. Gained hands-on experience with XCode and Swift.</p>
+          </div>
+          <div class="lang it">
+            <p>Sviluppo di applicazioni iOS native, con lavoro sulla home page di Barterchain da zero. Esperienza pratica con XCode e Swift.</p>
+          </div>
+          <div class="tech-chips">
+            <span class="chip">Swift</span><span class="chip">iOS</span><span class="chip">XCode</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal-item">
+        <div class="timeline-meta">
+          <span class="timeline-date">May 2022 — Jun 2022</span>
+          <span class="timeline-company"><a href="https://www.laserinformatica.it/" target="_blank" class="timeline-link">Laser Informatica</a> · Recanati</span>
+        </div>
+        <div class="timeline-body">
+          <h3 class="lang en active">Software Developer Intern</h3>
+          <h3 class="lang it">Tirocinante Software Developer</h3>
+          <div class="lang en active">
+            <p>Implemented a Business Management Software using Blazor and Visual Studio 2019, applying the MVVM design pattern to build interactive dashboards.</p>
+          </div>
+          <div class="lang it">
+            <p>Sviluppo di un gestionale aziendale con Blazor e Visual Studio 2019, applicando il pattern MVVM per la realizzazione di dashboard interattive.</p>
+          </div>
+          <div class="tech-chips">
+            <span class="chip">Blazor</span><span class="chip">C#</span><span class="chip">MVVM</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" class="section reveal">
+  <div class="container">
+    <div class="section-label lang en active">03 — Education</div>
+    <div class="section-label lang it">03 — Formazione</div>
+    <h2 class="section-title lang en active">Education</h2>
+    <h2 class="section-title lang it">Percorso Accademico</h2>
+    <div class="edu-grid">
+
+      <!-- MSc @ Reykjavik -->
+      <div class="edu-card reveal-item">
+        <div class="edu-flag">🇮🇸</div>
+        <div class="edu-body">
+          <div class="edu-degree lang en active">MSc Computer Science</div>
+          <div class="edu-degree lang it">MSc in Informatica</div>
+          <div class="edu-school">Reykjavík University</div>
+          <div class="edu-period">Aug 2023 — Dec 2023 · <span class="lang en active">Double Degree Exchange</span><span class="lang it">Scambio Doppia Laurea</span></div>
+          <div class="lang en active">
+            <p>Focus on Machine Learning and Natural Language Processing. Recipient of the highly competitive Double Degree Scholarship (10 positions awarded for academic excellence).</p>
+            <ul class="edu-courses">
+              <li>Machine Learning in Cyber Security</li>
+              <li>Natural Language Processing</li>
+              <li>Research Methodologies</li>
+              <li>Fundamentals of Machine Learning</li>
+            </ul>
+          </div>
+          <div class="lang it">
+            <p>Specializzazione in Machine Learning e Natural Language Processing. Borsa di studio Double Degree (10 posti, merito accademico).</p>
+            <ul class="edu-courses">
+              <li>Machine Learning in Cyber Security</li>
+              <li>Natural Language Processing</li>
+              <li>Research Methodologies</li>
+              <li>Fundamentals of Machine Learning</li>
+            </ul>
+          </div>
+          <div class="tech-chips">
+            <span class="chip">🏅 <span class="lang en active">Scholarship</span><span class="lang it">Borsa di Studio</span></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- MSc @ UNICAM -->
+      <div class="edu-card reveal-item">
+        <div class="edu-flag">🇮🇹</div>
+        <div class="edu-body">
+          <div class="edu-degree lang en active">MSc Computer Science</div>
+          <div class="edu-degree lang it">MSc in Informatica</div>
+          <div class="edu-school">UNICAM — University of Camerino</div>
+          <div class="edu-period">Oct 2022 — Apr 2025 · <span class="edu-mark">110/110 cum laude</span></div>
+          <div class="lang en active">
+            <p>Software Development and Technologies curriculum. Thesis: <em>"Time Series Forecasting in Automated Financial Trading"</em> — CLSTM-PPO deep reinforcement learning applied to algorithmic trading.</p>
+            <ul class="edu-courses">
+              <li>Informed Search Methods in AI</li>
+              <li>Distributed Systems</li>
+              <li>Technologies for Big Data Management</li>
+              <li>Complex System Design</li>
+              <li>Software Project Management</li>
+            </ul>
+          </div>
+          <div class="lang it">
+            <p>Curriculum Software Development and Technologies. Tesi: <em>"Time Series Forecasting in Automated Financial Trading"</em> — deep reinforcement learning CLSTM-PPO applicato al trading algoritmico.</p>
+            <ul class="edu-courses">
+              <li>Informed Search Methods in AI</li>
+              <li>Distributed Systems</li>
+              <li>Technologies for Big Data Management</li>
+              <li>Complex System Design</li>
+              <li>Software Project Management</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- BSc @ UNICAM -->
+      <div class="edu-card reveal-item">
+        <div class="edu-flag">🇮🇹</div>
+        <div class="edu-body">
+          <div class="edu-degree lang en active">BSc Computer Science</div>
+          <div class="edu-degree lang it">Laurea Triennale in Informatica</div>
+          <div class="edu-school">UNICAM — University of Camerino</div>
+          <div class="edu-period">Oct 2019 — Dec 2022 · <span class="edu-mark">93/110</span></div>
+          <div class="lang en active">
+            <p>Thesis: <em>"Study and analysis of the Single Shot Multibox Detector algorithm applied to the cataloguing of a dataset of historical images"</em>.</p>
+          </div>
+          <div class="lang it">
+            <p>Tesi: <em>"Studio e analisi dell'algoritmo Single Shot Multibox Detector applicato alla catalogazione di un dataset di immagini storiche"</em>.</p>
+          </div>
+          <div class="tech-chips">
+            <span class="chip">Python</span><span class="chip">Computer Vision</span><span class="chip">Java</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="section reveal">
+  <div class="container">
+    <div class="section-label lang en active">04 — Projects</div>
+    <div class="section-label lang it">04 — Progetti</div>
+    <h2 class="section-title lang en active">Academic Projects</h2>
+    <h2 class="section-title lang it">Progetti Accademici</h2>
+    <div class="projects-grid">
+
+      <div class="project-card reveal-item featured">
+        <div class="project-card-inner">
+          <div class="project-number">01</div>
+          <h3 class="lang en active">Time Series Forecasting in Automated Financial Trading</h3>
+          <h3 class="lang it">Time Series Forecasting in Automated Financial Trading</h3>
+          <p class="lang en active">MSc thesis. CLSTM-PPO deep reinforcement learning architecture for predicting financial market trends, combining statistical techniques and deep learning.</p>
+          <p class="lang it">Tesi MSc. Architettura CLSTM-PPO di deep reinforcement learning per la previsione dei mercati finanziari, combinando tecniche statistiche e deep learning.</p>
+          <div class="project-footer">
+            <div class="project-tags"><span class="ptag">Deep RL</span><span class="ptag">PyTorch</span><span class="ptag">Time Series</span></div>
+            <div class="project-links">
+              <a href="https://github.com/damiano00/time_series_forecasting" target="_blank" class="icon-link" title="GitHub"><i class="fab fa-github"></i></a>
+              <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=5iwL8oAAAAAJ&citation_for_view=5iwL8oAAAAAJ:u5HHmVD_uO8C" target="_blank" class="icon-link" title="Scholar"><i class="fas fa-graduation-cap"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card reveal-item">
+        <div class="project-card-inner">
+          <div class="project-number">02</div>
           <h3>Broca-translator</h3>
-          <p>Seq2Seq model for translating aphasic sentences (Broca's aphasia) into English. Developed during the NLP course at Reykjavik University.</p>
+          <p class="lang en active">Seq2Seq model for translating aphasic sentences (Broca's aphasia) into grammatically correct English. NLP course at Reykjavik University.</p>
+          <p class="lang it">Modello Seq2Seq per tradurre frasi afasiche (afasia di Broca) in inglese corretto. Corso NLP alla Reykjavik University.</p>
+          <div class="project-footer">
+            <div class="project-tags"><span class="ptag">NLP</span><span class="ptag">Seq2Seq</span></div>
+            <div class="project-links">
+              <a href="https://github.com/AndreaTerenz/Broca-translator" target="_blank" class="icon-link"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
         </div>
-        <div class="lang it">
-          <h3>Broca-translator</h3>
-          <p>Modello Seq2Seq per tradurre frasi afasiche (Broca's aphasia) in inglese. Sviluppato durante il corso di NLP alla Reykjavik University.</p>
-        </div>
-        <a href="https://github.com/AndreaTerenz/Broca-translator" target="_blank" class="btn github-btn"><i class="fab fa-github"></i> GitHub</a>
       </div>
 
-      <div class="project-card">
-        <div class="lang en active">
-          <h3>Malware Classification with Cuckoo Sandbox</h3>
-          <p>Classifies malware using dynamic analysis via Cuckoo Sandbox. Final project for the MLCS course at Reykjavik University.</p>
+      <div class="project-card reveal-item">
+        <div class="project-card-inner">
+          <div class="project-number">03</div>
+          <h3 class="lang en active">Malware Classification with Cuckoo Sandbox</h3>
+          <h3 class="lang it">Malware Classification with Cuckoo Sandbox</h3>
+          <p class="lang en active">Dynamic malware analysis and classification using Cuckoo Sandbox. Final project for the MLCS course at Reykjavik University.</p>
+          <p class="lang it">Analisi e classificazione dinamica di malware con Cuckoo Sandbox. Progetto finale MLCS alla Reykjavik University.</p>
+          <div class="project-footer">
+            <div class="project-tags"><span class="ptag">ML</span><span class="ptag">Security</span></div>
+            <div class="project-links">
+              <a href="https://github.com/marcoserenelli/MCCukoo" target="_blank" class="icon-link"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
         </div>
-        <div class="lang it">
-          <h3>Malware Classification with Cuckoo Sandbox</h3>
-          <p>Classificazione di malware tramite analisi dinamica con Cuckoo Sandbox. Progetto finale per il corso MLCS alla Reykjavik University.</p>
-        </div>
-        <a href="https://github.com/marcoserenelli/MCCukoo" target="_blank" class="btn github-btn"><i class="fab fa-github"></i> GitHub</a>
       </div>
 
-      <div class="project-card">
-        <div class="lang en active">
-          <h3>Network Intrusion Detection</h3>
-          <p>Used Decision Tree and Random Forest classifiers with thorough preprocessing for a cybersecurity task.</p>
+      <div class="project-card reveal-item">
+        <div class="project-card-inner">
+          <div class="project-number">04</div>
+          <h3 class="lang en active">Network Intrusion Detection</h3>
+          <h3 class="lang it">Network Intrusion Detection</h3>
+          <p class="lang en active">Decision Tree (99.87% accuracy) and Random Forest (81.79%) classifiers with thorough preprocessing for cybersecurity threat detection. Built with scikit-learn and pandas.</p>
+          <p class="lang it">Classificatori Decision Tree (99.87%) e Random Forest (81.79%) con preprocessing avanzato per la rilevazione di minacce informatiche. Sviluppato con scikit-learn e pandas.</p>
+          <div class="project-footer">
+            <div class="project-tags"><span class="ptag">ML</span><span class="ptag">Cybersecurity</span><span class="ptag">scikit-learn</span></div>
+            <div class="project-links">
+              <a href="https://github.com/damiano00/T_710_MLCS_Machine_Learning_in_Cyber_Security/tree/main/intrusion_detection" target="_blank" class="icon-link"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
         </div>
-        <div class="lang it">
-          <h3>Network Intrusion Detection</h3>
-          <p>Utilizzo di classificatori Decision Tree e Random Forest con preprocessing avanzato per un compito di cybersecurity.</p>
-        </div>
-        <a href="https://github.com/damiano00/T_710_MLCS_Machine_Learning_in_Cyber_Security/tree/main/intrusion_detection" target="_blank" class="btn github-btn"><i class="fab fa-github"></i> GitHub</a>
       </div>
 
-      <div class="project-card">
-        <div class="lang en active">
+      <div class="project-card reveal-item">
+        <div class="project-card-inner">
+          <div class="project-number">05</div>
+          <h3 class="lang en active">Credit Card Fraud Detection</h3>
+          <h3 class="lang it">Credit Card Fraud Detection</h3>
+          <p class="lang en active">Stacking ensemble ML model achieving 0.999 accuracy — 0.001 above state of the art. Group project for the Research Methodologies course at Reykjavik University.</p>
+          <p class="lang it">Modello ensemble ML con stacking: 0.999 di accuracy, superiore allo stato dell'arte. Progetto di gruppo per il corso Research Methodologies alla Reykjavik University.</p>
+          <div class="project-footer">
+            <div class="project-tags"><span class="ptag">ML</span><span class="ptag">Ensemble</span><span class="ptag">Python</span></div>
+            <div class="project-links">
+              <a href="https://github.com/damiano00" target="_blank" class="icon-link"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card reveal-item">
+        <div class="project-card-inner">
+          <div class="project-number">06</div>
+          <h3 class="lang en active">Spam Classifier Comparison</h3>
+          <h3 class="lang it">Spam Classifier Comparison</h3>
+          <p class="lang en active">Evaluation of Naive Bayes, KNN, and Logistic Regression spam classifiers. Naive Bayes achieved 95.77% accuracy, 99.17% precision, AUC 99.79%.</p>
+          <p class="lang it">Valutazione comparativa di Naive Bayes, KNN e Logistic Regression. Naive Bayes: 95.77% accuracy, 99.17% precision, AUC 99.79%.</p>
+          <div class="project-footer">
+            <div class="project-tags"><span class="ptag">NLP</span><span class="ptag">Classification</span><span class="ptag">nltk</span></div>
+            <div class="project-links">
+              <a href="https://github.com/damiano00" target="_blank" class="icon-link"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card reveal-item">
+        <div class="project-card-inner">
+          <div class="project-number">07</div>
           <h3>JanusGraph-API</h3>
-          <p>REST API querying JanusGraph with Cassandra backend. Built for a Big Data Management course at UNICAM.</p>
+          <p class="lang en active">REST API for querying JanusGraph with a Cassandra backend. Built for the Technologies for Big Data Management course at UNICAM.</p>
+          <p class="lang it">REST API per interrogare JanusGraph con backend Cassandra. Realizzato per il corso Technologies for Big Data Management a UNICAM.</p>
+          <div class="project-footer">
+            <div class="project-tags"><span class="ptag">Java</span><span class="ptag">GraphDB</span><span class="ptag">REST</span></div>
+            <div class="project-links">
+              <a href="https://github.com/TBDM-Project/JanusGraph-API-example" target="_blank" class="icon-link"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
         </div>
-        <div class="lang it">
-          <h3>JanusGraph-API</h3>
-          <p>REST API per interrogare JanusGraph con backend Cassandra. Realizzato per il corso di Technologies for Big Data Management ad UNICAM.</p>
-        </div>
-        <a href="https://github.com/TBDM-Project/JanusGraph-API-example" target="_blank" class="btn github-btn"><i class="fab fa-github"></i> GitHub</a>
       </div>
 
-      <div class="project-card">
-        <div class="lang en active">
-          <h3>Algorithms and Data Structures</h3>
-          <p>Java library implementing graph algorithms like Dijkstra and Bellman-Ford. Course project at UNICAM.</p>
+      <div class="project-card reveal-item">
+        <div class="project-card-inner">
+          <div class="project-number">08</div>
+          <h3 class="lang en active">Image Cataloging Support</h3>
+          <h3 class="lang it">Image Cataloging Support</h3>
+          <p class="lang en active">Face and stamp recognition in historical images using SSD (Single Shot MultiBox Detector). Trained on local museum data.</p>
+          <p class="lang it">Riconoscimento di volti e francobolli in immagini storiche tramite SSD. Addestrato su dati di un museo locale.</p>
+          <div class="project-footer">
+            <div class="project-tags"><span class="ptag">CV</span><span class="ptag">SSD</span><span class="ptag">Python</span></div>
+            <div class="project-links">
+              <a href="https://github.com/damiano00/ImageCatalogingSupport" target="_blank" class="icon-link"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
         </div>
-        <div class="lang it">
-          <h3>Algorithms and Data Structures</h3>
-          <p>Libreria Java che implementa algoritmi su grafi come Dijkstra e Bellman-Ford. Progetto di corso ad UNICAM.</p>
-        </div>
-        <a href="https://github.com/damiano00/AlgorithmsAndDataStructuresProject" target="_blank" class="btn github-btn"><i class="fab fa-github"></i> GitHub</a>
       </div>
 
-      <div class="project-card">
-        <div class="lang en active">
-          <h3>Image Cataloging Support</h3>
-          <p>Face and stamp recognition in historical images using SSD. Trained on local museum data.</p>
+      <div class="project-card reveal-item">
+        <div class="project-card-inner">
+          <div class="project-number">09</div>
+          <h3 class="lang en active">Algorithms &amp; Data Structures</h3>
+          <h3 class="lang it">Algoritmi e Strutture Dati</h3>
+          <p class="lang en active">Java library implementing graph algorithms including Dijkstra and Bellman-Ford. Course project at UNICAM.</p>
+          <p class="lang it">Libreria Java con algoritmi su grafi (Dijkstra, Bellman-Ford). Progetto del corso ad UNICAM.</p>
+          <div class="project-footer">
+            <div class="project-tags"><span class="ptag">Java</span><span class="ptag">Algorithms</span></div>
+            <div class="project-links">
+              <a href="https://github.com/damiano00/AlgorithmsAndDataStructuresProject" target="_blank" class="icon-link"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
         </div>
-        <div class="lang it">
-          <h3>Image Cataloging Support</h3>
-          <p>Riconoscimento di volti e francobolli in immagini storiche tramite algoritmo Single Shot Multibox Detector (SSD). Addestrato su dati di un museo locale.</p>
-        </div>
-        <a href="https://github.com/damiano00/ImageCatalogingSupport" target="_blank" class="btn github-btn"><i class="fab fa-github"></i> GitHub</a>
       </div>
 
-      <div class="project-card">
-        <div class="lang en active">
+      <div class="project-card reveal-item">
+        <div class="project-card-inner">
+          <div class="project-number">10</div>
           <h3>Card Game Library</h3>
-          <p>Java framework for card games. Includes an implmementation of the italian cards game named Briscola. Developed at UNICAM.</p>
+          <p class="lang en active">Java framework for card games, including an implementation of the Italian game Briscola. Developed at UNICAM.</p>
+          <p class="lang it">Framework Java per giochi di carte con implementazione della Briscola. Sviluppato a UNICAM.</p>
+          <div class="project-footer">
+            <div class="project-tags"><span class="ptag">Java</span><span class="ptag">OOP</span></div>
+            <div class="project-links">
+              <a href="https://github.com/damiano00/CardGameLib" target="_blank" class="icon-link"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
         </div>
-        <div class="lang it">
-          <h3>Card Game Library</h3>
-          <p>Framework Java per giochi di carte. Include un’implementazione della Briscola. Sviluppato a UNICAM.</p>
-        </div>
-        <a href="https://github.com/damiano00/CardGameLib" target="_blank" class="btn github-btn"><i class="fab fa-github"></i> GitHub</a>
       </div>
-    </div>
-  </section>
 
-  <!-- RESUME -->
-  <section id="resume" class="container">
-    <div class="lang en active">
-      <h2>Resume</h2>
-      <a href="https://drive.google.com/file/d/1me_clfpK2CraWZkk_x3bkZopSuieInTB/view" target="_blank" class="btn cv-btn"><i class="fas fa-file-alt"></i> Open PDF</a>
     </div>
-    <div class="lang it">
-      <h2>Curriculum</h2>
-      <a href="https://drive.google.com/file/d/1me_clfpK2CraWZkk_x3bkZopSuieInTB/view" target="_blank" class="btn cv-btn"><i class="fas fa-file-alt"></i> Apri PDF</a>
-    </div>
-  </section>
+  </div>
+</section>
 
-  <section id="contact" class="container">
-    <div class="lang en active">
-      <h2>Contact</h2>
-      <a href="https://www.linkedin.com/in/damianopasquini/" target="_blank" class="social-link linkedin">
-        <i class="fab fa-linkedin"></i>
+<!-- RESUME -->
+<section id="resume" class="section reveal">
+  <div class="container">
+    <div class="section-label lang en active">05 — Resume</div>
+    <div class="section-label lang it">05 — Curriculum</div>
+    <div class="resume-block">
+      <div>
+        <h2 class="lang en active">Download my CV</h2>
+        <h2 class="lang it">Scarica il mio CV</h2>
+        <p class="lang en active">Full work history, education, and skills in PDF format.</p>
+        <p class="lang it">Storico completo, formazione e competenze in formato PDF.</p>
+      </div>
+      <a href="https://drive.google.com/file/d/1me_clfpK2CraWZkk_x3bkZopSuieInTB/view" target="_blank" class="btn btn-primary">
+        <i class="fas fa-file-alt"></i>
+        <span class="lang en active">Open PDF</span>
+        <span class="lang it">Apri PDF</span>
       </a>
     </div>
-    <div class="lang it">
-      <h2>Contatti</h2>
-      <a href="https://www.linkedin.com/in/damianopasquini/" target="_blank" class="social-link linkedin">
-        <i class="fab fa-linkedin"></i>
-      </a>
-    </div>
-  </section>
+  </div>
+</section>
 
-  <footer>
+<!-- CONTACT -->
+<section id="contact" class="section reveal">
+  <div class="container">
+    <div class="section-label lang en active">06 — Contact</div>
+    <div class="section-label lang it">06 — Contatti</div>
+    <div class="contact-block">
+      <h2 class="lang en active">Let's connect</h2>
+      <h2 class="lang it">Connettiamoci</h2>
+      <p class="lang en active">I'm open to interesting opportunities and conversations.</p>
+      <p class="lang it">Sono aperto a opportunità e conversazioni interessanti.</p>
+      <div class="contact-links">
+        <a href="https://www.linkedin.com/in/damianopasquini/" target="_blank" class="btn btn-primary">
+          <i class="fab fa-linkedin"></i> LinkedIn
+        </a>
+        <a href="https://github.com/damiano00" target="_blank" class="btn btn-ghost">
+          <i class="fab fa-github"></i> GitHub
+        </a>
+        <a href="mailto:pasquini.damiano00@gmail.com" class="btn btn-ghost">
+          <i class="fas fa-envelope"></i> Email
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <span class="logo">DP<span class="logo-dot">.</span></span>
     <p>&copy; 2026 Damiano Pasquini</p>
-  </footer>
+    <div class="footer-links">
+      <a href="https://github.com/damiano00" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/damianopasquini/" target="_blank"><i class="fab fa-linkedin"></i></a>
+    </div>
+  </div>
+</footer>
 
-  <script>
-    function setLang(lang) {
-      document.querySelectorAll('.lang').forEach(el => el.classList.remove('active'));
-      document.querySelectorAll('.' + lang).forEach(el => el.classList.add('active'));
-      document.querySelectorAll('nav a').forEach(el => {
-        el.textContent = el.getAttribute('data-' + lang);
-      });
+<script>
+  // Custom cursor
+  const cursor = document.getElementById('cursor');
+  const cursorDot = document.getElementById('cursor-dot');
+  let mouseX = 0, mouseY = 0;
+  document.addEventListener('mousemove', e => {
+    mouseX = e.clientX; mouseY = e.clientY;
+    cursorDot.style.left = mouseX + 'px';
+    cursorDot.style.top = mouseY + 'px';
+  });
+  setInterval(() => {
+    cursor.style.left = mouseX + 'px';
+    cursor.style.top = mouseY + 'px';
+  }, 80);
+  document.querySelectorAll('a, button, .project-card').forEach(el => {
+    el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+    el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+  });
+
+  // Typing effect
+  const phrases = [
+    'Software Developer',
+    'Network Infrastructure Specialist',
+    'ML Enthusiast',
+    'Algorithmic Trading Researcher'
+  ];
+  let phraseIdx = 0, charIdx = 0, deleting = false;
+  const typingEl = document.getElementById('typing');
+  function typeLoop() {
+    const phrase = phrases[phraseIdx];
+    if (!deleting) {
+      typingEl.textContent = phrase.slice(0, ++charIdx);
+      if (charIdx === phrase.length) { deleting = true; setTimeout(typeLoop, 1800); return; }
+    } else {
+      typingEl.textContent = phrase.slice(0, --charIdx);
+      if (charIdx === 0) { deleting = false; phraseIdx = (phraseIdx + 1) % phrases.length; }
     }
-    // default: English
-    setLang('en');
-  </script>
+    setTimeout(typeLoop, deleting ? 45 : 80);
+  }
+  typeLoop();
+
+  // Counter animation
+  function animateCounters() {
+    document.querySelectorAll('.stat-num').forEach(el => {
+      const target = parseInt(el.dataset.target);
+      let current = 0;
+      const step = Math.ceil(target / 40);
+      const timer = setInterval(() => {
+        current = Math.min(current + step, target);
+        el.textContent = current;
+        if (current >= target) clearInterval(timer);
+      }, 30);
+    });
+  }
+
+  // Scroll reveal
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal, .reveal-item').forEach(el => revealObserver.observe(el));
+
+  // Counter trigger
+  const heroObserver = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) { animateCounters(); heroObserver.disconnect(); }
+  }, { threshold: 0.5 });
+  heroObserver.observe(document.querySelector('.hero-stats'));
+
+  // Sticky header
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Mobile drawer
+  const hamburger = document.getElementById('hamburger');
+  const drawer = document.getElementById('drawer');
+  const overlay = document.getElementById('overlay');
+  function toggleDrawer(open) {
+    drawer.classList.toggle('open', open);
+    overlay.classList.toggle('open', open);
+    hamburger.classList.toggle('open', open);
+  }
+  hamburger.addEventListener('click', () => toggleDrawer(!drawer.classList.contains('open')));
+  overlay.addEventListener('click', () => toggleDrawer(false));
+  document.querySelectorAll('.drawer-link').forEach(l => l.addEventListener('click', () => toggleDrawer(false)));
+
+  // i18n
+  function setLang(lang) {
+    document.querySelectorAll('.lang').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.' + lang).forEach(el => el.classList.add('active'));
+    document.querySelectorAll('[data-' + lang + ']').forEach(el => {
+      if (!el.classList.contains('lang')) el.textContent = el.getAttribute('data-' + lang);
+    });
+    ['btn-en','btn-it','dbtn-en','dbtn-it'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.classList.toggle('active', id.includes(lang));
+    });
+  }
+  setLang('en');
+</script>
 </body>
 </html>
+
+
