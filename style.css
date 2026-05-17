@@ -872,6 +872,9 @@ footer p {
   }
 
   .timeline-meta { padding-right: 0; }
+   
+  nav ul { display: none; }
+  .hamburger { display: flex; }
 }
 
 @media (max-width: 600px) {
