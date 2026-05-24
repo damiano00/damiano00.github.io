@@ -156,6 +156,33 @@ nav ul li a:hover {
 .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .hamburger.open span:nth-child(2) { opacity: 0; }
 .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  background: var(--bg-3);
+  border: 1px solid var(--border-hover);
+  color: var(--text-muted);
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 90;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition), border-color var(--transition), color var(--transition);
+}
+.back-to-top.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+.back-to-top:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
 
 /* ========================
    MOBILE DRAWER
@@ -222,12 +249,19 @@ nav ul li a:hover {
   z-index: 0;
   mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
 }
+body.light .hero-bg-grid {
+  background-image:
+    linear-gradient(rgba(0,0,0,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.06) 1px, transparent 1px);
+}
 .hero-content {
   position: relative;
   z-index: 1;
   max-width: 1200px;
   margin: 0 auto;
   width: 100%;
+  padding-top: 0;
+  margin-top: -2rem;
 }
 .hero-label {
   display: flex;
@@ -660,11 +694,11 @@ nav ul li a:hover {
 .ptag {
   font-family: var(--font-mono);
   font-size: 0.68rem;
-  color: var(--text-faint);
-  background: var(--bg-3);
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  padding: 0.15rem 0.5rem;
+  color: var(--accent);
+  background: var(--accent-dim2);
+  border: 1px solid rgba(200,245,66,0.2);
+  border-radius: var(--radius-sm);
+  padding: 0.2rem 0.6rem;
 }
 .project-links { display: flex; gap: 0.6rem; }
 .icon-link {
@@ -861,13 +895,13 @@ footer p {
   .timeline-item {
     grid-template-columns: 1fr;
     gap: 0.5rem;
-    padding-left: 1.2rem;
+    padding: 1.5rem 0 1.5rem 1.5rem;
     border-left: 1px solid var(--border);
   }
 
   .timeline-item::before {
     left: -4px;
-    top: 1.2rem;
+    top: 2rem;
     transform: none;
   }
 
@@ -875,6 +909,22 @@ footer p {
    
   nav ul { display: none; }
   .hamburger { display: flex; }
+
+  .hero-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.05em;
+    white-space: normal;
+    word-break: break-word;
+  }
+
+  html {
+    overflow-x: hidden;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
 }
 
 @media (max-width: 600px) {
@@ -882,11 +932,23 @@ footer p {
   .hero { padding: 6rem 1.2rem 3rem; }
   .section { padding: 4rem 1.2rem; }
   .hero-name { font-size: clamp(2.8rem, 13vw, 4.5rem); }
-  .hero-stats { gap: 1.5rem; }
+  .hero-stats {
+    gap: 1.5rem;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+  }
   .hero-cta { flex-direction: column; }
   .hero-cta .btn { width: 100%; justify-content: center; }
   .projects-grid { grid-template-columns: 1fr; }
   .resume-block { flex-direction: column; text-align: center; padding: 2rem 1.5rem; }
+  .scroll-hint { display: none; }
+  .back-to-top {
+    bottom: 5rem;
+  }
+  .stat-unit {
+    font-size: 0.8rem;
+    vertical-align: super;
+  }
 }
 
 .timeline-link {
@@ -895,3 +957,51 @@ footer p {
   transition: border-color var(--transition);
 }
 .timeline-link:hover { border-bottom-color: var(--accent); }
+body.light {
+  --bg: #f5f5f0;
+  --bg-2: #eeeee9;
+  --bg-3: #e4e4df;
+  --bg-card: #ffffff;
+  --border: rgba(0,0,0,0.08);
+  --border-hover: rgba(0,0,0,0.2);
+  --text: #1a1a1a;
+  --text-muted: #555;
+  --text-faint: #999;
+  --accent: #5a8a00;
+  --accent-dim: rgba(90,138,0,0.12);
+  --accent-dim2: rgba(90,138,0,0.06);
+}
+body.light header.scrolled {
+  background: rgba(245,245,240,0.92);
+}
+
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--border-hover);
+  color: var(--text-muted);
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: border-color var(--transition), color var(--transition);
+}
+.theme-toggle:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+body.light .project-card.featured {
+  background: linear-gradient(135deg, #ffffff 0%, #f0f5e0 100%);
+  border-color: rgba(90,138,0,0.3);
+}
+body.light .project-card.featured:hover {
+  border-color: rgba(90,138,0,0.6);
+  box-shadow: 0 16px 40px rgba(90,138,0,0.1);
+}
+.stat-top {
+  display: flex;
+  align-items: baseline;
+  line-height: 1;
+}
