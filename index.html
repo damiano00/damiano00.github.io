@@ -30,6 +30,9 @@
     </nav>
     <div class="nav-right">
       <div class="lang-btns">
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+          <i class="fas fa-sun" id="theme-icon"></i>
+        </button>
         <button onclick="setLang('en')" class="lang-btn active" id="btn-en">EN</button>
         <span class="lang-sep">/</span>
         <button onclick="setLang('it')" class="lang-btn" id="btn-it">IT</button>
@@ -96,7 +99,7 @@
       </div>
       <div class="stat-divider"></div>
       <div class="stat">
-        <span class="stat-num" data-target="8">0</span><span class="stat-unit">+</span>
+        <span class="stat-num" data-target="8" data-suffix="+">0</span>
         <span class="stat-label lang en active">Tech projects</span>
         <span class="stat-label lang it">Progetti tech</span>
       </div>
@@ -627,11 +630,12 @@
   function animateCounters() {
     document.querySelectorAll('.stat-num').forEach(el => {
       const target = parseInt(el.dataset.target);
+      const suffix = el.dataset.suffix || '';
       let current = 0;
       const step = Math.ceil(target / 40);
       const timer = setInterval(() => {
         current = Math.min(current + step, target);
-        el.textContent = current;
+        el.textContent = current + suffix;
         if (current >= target) clearInterval(timer);
       }, 30);
     });
@@ -683,6 +687,29 @@
     });
   }
   setLang('en');
+
+  const themeToggle = document.getElementById('theme-toggle');
+  const themeIcon = document.getElementById('theme-icon');
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'light') {
+    document.body.classList.add('light');
+    themeIcon.className = 'fas fa-moon';
+  }
+  themeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('light');
+    const isLight = document.body.classList.contains('light');
+    themeIcon.className = isLight ? 'fas fa-moon' : 'fas fa-sun';
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+  });
+</script>
+<button class="back-to-top" id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <i class="fas fa-arrow-up"></i>
+</button>
+<script>
+  const btt = document.getElementById('back-to-top');
+  window.addEventListener('scroll', () => {
+    btt.classList.toggle('visible', window.scrollY > 400);
+  });
 </script>
 </body>
 </html>
